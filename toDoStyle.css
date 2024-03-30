@@ -1,0 +1,25 @@
+body {
+    background-color: #102a43;
+}
+
+h1{
+    color:whitesmoke
+}
+
+.doneBtn{
+    border-radius: 50%;
+    border-color: azure;
+    color: #102a43;
+    background-color: aliceblue;
+    margin: 2%;
+
+}
+
+.completedTask {
+    
+    text-decoration: line-through;
+}
+
+#currentTasks {
+    color: salmon;
+}
