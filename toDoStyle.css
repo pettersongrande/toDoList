@@ -1,26 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    height: 10em;
+    width: 100%;
+    display: grid;
+    place-items: center;
     background-color: #102a43;
 }
 
-h1{
-    color:whitesmoke
+h1 {
+    
+    color:whitesmoke;
+    text-align: center;
+    font-size: 3em;
+}
+
+input {
+    box-sizing: border-box;
+    width: 33em;
+    padding: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    outline: none;
+    resize: none;
+    border-radius: 0.25em;
+    
 }
 
 .doneBtn{
     border-radius: 50%;
+    padding: 2px;
+    width: 1.5rem;
     border-color: azure;
     color: #102a43;
     background-color: aliceblue;
-    margin: 2%;
+    margin: 1em;
+
+}
+
+#addBtn {
+    
+    flex-grow: 1;
+    width: 15em;
+    margin: 1em;
+    border: none;
+    outline: none;
+    border-radius: 1em;
+    height: 3em;
+    cursor: pointer;
+    color: orangered;
+    background: lightblue;
 
 }
 
 .completedTask {
     
     text-decoration: line-through;
+    font-style: italic;
 }
 
 #currentTasks {
     color: salmon;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Times New Roman', Times, serif;
 }

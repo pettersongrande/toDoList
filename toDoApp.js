@@ -109,4 +109,3 @@ function taskInteraction(event){
     return false;
     
 };
-
