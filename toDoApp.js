@@ -110,4 +110,3 @@ function taskInteraction(event){
     
 };
 
-//Today's goal was to be able to delete tasks from local storage. For that extra functionality to doneBtn was added. newTaskFunc now creates a data attribute as a parameter so we can use its index to removeTask. Refresh taskList refreshes the HTML everytime a done button is clicked. This reassignes each element with a new index number. Index number is the data attribute used to work with the new removeTask function.
