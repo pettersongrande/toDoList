@@ -19,8 +19,9 @@ submitForm.addEventListener('submit', (e)=>{
 
 allTasks.addEventListener('click', (e)=>{
 
-    e.preventDefault()
-    taskInteraction(e)
+    e.preventDefault();
+    taskInteraction(e);
+    
     
 
 });
@@ -32,20 +33,24 @@ allTasks.addEventListener('click', (e)=>{
 
 function newTaskFunc(userInput){
     
-    // const taskList = getData();
-    tasksInLocalStorage.push(userInput);
+    const taskObj = {taskText: userInput , isDone: false};
+    tasksInLocalStorage.push(taskObj);
     storeData(tasksInLocalStorage);
-    newTaskElement(userInput, tasksInLocalStorage.length - 1);
-  
+    newTaskElement(taskObj, tasksInLocalStorage.length - 1);
+    
     return false;
 
 };
 
 function newTaskElement(task, index){
-    console.log('newTaskELement', { task, index });
+    
     const newTaskEl = document.createElement('LI');
     newTaskEl.dataset.indexNumber = index;
-    newTaskEl.innerHTML = task;
+    newTaskEl.innerHTML = task.taskText;
+
+    if(task.isDone === true){
+        newTaskEl.classList.add('completedTask');
+    };
     
 
     const doneBtn = document.createElement('BUTTON');
@@ -87,24 +92,40 @@ function removeTask(array,index){
 
 };
 
+
 function refreshTaskList(){
     allTasks.innerHTML = '';
     tasksInLocalStorage.forEach(newTaskElement);
 };
+
+
 //taskInteraction this function should mark a task as complete and delete a task 
+
 
 function taskInteraction(event){
     if(event.target.tagName === 'LI'){
+        const taskId = Number(event.target.dataset.indexNumber);
 
-        event.target.classList.toggle('completedTask');
+        if (tasksInLocalStorage[taskId].isDone === false) {
+            tasksInLocalStorage[taskId].isDone = true;
+            
+        } else {
+            tasksInLocalStorage[taskId].isDone = false;
+        }
+        storeData(tasksInLocalStorage);
+        refreshTaskList();
+        
+        
     };
+
     if(event.target.tagName === 'BUTTON'){
         event.target.parentElement.remove();
         removeTask(tasksInLocalStorage, Number(event.target.dataset.indexNumber));
-        refreshTaskList();
-        console.log(tasksInLocalStorage);
+        refreshTaskList();        
 
     };
+
+
     
     return false;
     
